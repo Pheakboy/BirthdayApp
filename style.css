@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  background: #020202;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+}
+
+h1 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 4em;
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+  z-index: 2;
+}
+
+/* Birthday Container Styling */
+.birthday-container {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Keyframes for Image Animation */
+@keyframes bounceScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Main Image Styling */
+.birthday-image {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  bottom: 10%;
+  left: 40%;
+  transform: translateX(-50%);
+  width: 300px; /* Larger size */
+  border: 4px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  opacity: 0.95;
+  transition: transform 0.3s;
+  animation: bounceScale 1s ease-in-out infinite alternate; /* Animation */
+}
+
+.birthday-image:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* Photo Gallery Styling */
+.photo-gallery {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 2;
+}
+
+.photo-gallery img {
+  width: 80px;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  opacity: 0.9;
+  transition: transform 0.3s;
+  animation: rotate 5s linear infinite; /* Animation */
+  transform-origin: center;
+}
+
+.photo-gallery img:hover {
+  transform: scale(1.1);
+  animation: bounceScale 0.5s ease-in-out alternate; /* Animation on hover */
+}
+
+/* Media Queries for Responsive Layout */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3em;
+  }
+  
+  .birthday-image {
+    width: 220px;
+  }
+
+  .photo-gallery img {
+    width: 60px;
+  }
+}
